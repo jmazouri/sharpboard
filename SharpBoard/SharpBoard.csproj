@@ -67,6 +67,10 @@
     <Reference Include="Nancy.ViewEngines.Razor">
       <HintPath>..\packages\Nancy.Viewengines.Razor.0.23.2\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -89,11 +93,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\BoardConfig.cs" />
-    <Compile Include="Config\RazorConfig.cs" />
-    <Compile Include="Database\BoardContext.cs" />
-    <Compile Include="Models\Post.cs" />
-    <Compile Include="Modules\HomeModule.cs" />
+    <Compile Include="App\Config\BoardConfig.cs" />
+    <Compile Include="App\Config\RazorConfig.cs" />
+    <Compile Include="App\CustomBootstrapper.cs" />
+    <Compile Include="App\Database\BoardContext.cs" />
+    <Compile Include="App\Models\Board.cs" />
+    <Compile Include="App\Models\Post.cs" />
+    <Compile Include="App\Modules\HomeModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -114,6 +120,7 @@
     <None Include="Views\Shared\Master.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Views\Shared\Partials\BoardList.cshtml" />
     <None Include="web.config">
       <SubType>Designer</SubType>
     </None>

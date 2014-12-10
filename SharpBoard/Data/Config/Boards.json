@@ -1,8 +1,7 @@
 ﻿{
     "Defaults": 
     {
-        "MaxPages": 10,
-        "AllowPostDeletion": 10
+        "MaxPages": 10
     },
     "Boards": [
         {

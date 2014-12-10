@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Nancy.ViewEngines.Razor;
 
-namespace SharpBoard.Config
+namespace SharpBoard.App.Config
 {
     public class RazorConfig : IRazorConfiguration
     {
