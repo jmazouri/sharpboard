@@ -1,0 +1,22 @@
+﻿{
+    "Defaults": 
+    {
+        "MaxPages": 10,
+        "AllowPostDeletion": 10
+    },
+    "Boards": [
+        {
+            "Name": "Random",
+            "Shorthand": "b"
+        },
+        {
+            "Name": "Videojuegos",
+            "Shorthand": "v",
+            "MaxPages": 15
+        },
+        {
+            "Name": "Technology",
+            "Shorthand": "g"
+        }
+    ]
+}
