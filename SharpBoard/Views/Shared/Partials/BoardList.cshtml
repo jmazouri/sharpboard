@@ -1,3 +1,21 @@
-﻿@{
-    
+﻿@using System.Collections.Generic
+@using System.Linq
+@using SharpBoard.App.Models
+@{
+    IEnumerable<Board> CurrentBoards = (IEnumerable<Board>)Model;
 }
+<div class="boardlist">
+    <span class="divider">[</span>
+        @foreach (Board b in CurrentBoards)
+        {
+            <a href="/@b.Shorthand">
+                <span>@b.Shorthand</span>
+            </a>
+
+            if (b != CurrentBoards.Last())
+            {
+                <span class="divider">/</span>
+            }
+        }
+    <span class="divider">]</span>
+</div>

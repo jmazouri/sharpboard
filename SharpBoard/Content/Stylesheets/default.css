@@ -1,0 +1,33 @@
+﻿.boardlist
+{
+    text-align: right;
+    margin-top: 24px;
+}
+
+.boardlist span:not(.divider)
+{
+    font-size: 1em;
+    background-color: #2ba6cb;
+    padding: 4px 6px 4px 6px;
+    border-radius: 6px;
+    color: white;
+}
+
+.boardlist span:not(.divider):hover
+{
+    color: rgb(18, 99, 162);
+}
+
+.boardlist span.divider
+{
+    font-size: 1.6em;
+    line-height: 0.6;
+    position: relative;
+    top: 3px;
+}
+
+.boardheader
+{
+    font-size: 2em;
+    text-align: center;
+}

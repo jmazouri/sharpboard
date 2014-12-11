@@ -16,6 +16,46 @@
         {
             "Name": "Technology",
             "Shorthand": "g"
+        },
+        {
+            "Name": "Wallpapers/General",
+            "Shorthand": "wg"
+        },
+        {
+            "Name": "Television",
+            "Shorthand": "tv"
+        },
+        {
+            "Name": "Fitness",
+            "Shorthand": "fit"
+        },
+        {
+            "Name": "Politics",
+            "Shorthand": "pol"
+        },
+        {
+            "Name": "Programming",
+            "Shorthand": "code"
+        },
+        {
+            "Name": "Boardgames",
+            "Shorthand": "bg"
+        },
+        {
+            "Name": "Porn",
+            "Shorthand": "nsfw"
+        },
+        {
+            "Name": "Music",
+            "Shorthand": "mu"
+        },
+        {
+            "Name": "Weapons",
+            "Shorthand": "wep"
+        },
+        {
+            "Name": "Trees",
+            "Shorthand": "420"
         }
     ]
 }

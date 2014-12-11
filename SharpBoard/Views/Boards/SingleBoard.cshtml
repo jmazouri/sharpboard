@@ -1,0 +1,9 @@
+﻿@using SharpBoard.App.Models
+@{
+    Board currentBoard = (Board) Model;
+}
+<div class="row">
+    <div class="boardheader large-16 columns">
+        Welcome to /@currentBoard.Shorthand/ - @currentBoard.Name
+    </div>
+</div>

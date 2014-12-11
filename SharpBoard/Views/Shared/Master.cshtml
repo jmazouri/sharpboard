@@ -1,14 +1,31 @@
-﻿@{
-    Layout = "Views/Shared/Master.cshtml";
-}
+﻿@using System.Linq
+@using SharpBoard.App.Config
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="/Content/Stylesheets/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Stylesheets/foundation.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/Content/Stylesheets/default.css" />
     <title></title>
 </head>
+
 <body>
+    <div class="row">
+        <div class="large-3 columns">
+            <h1>SharpBoard</h1>
+        </div>
+        <div class="large-13 columns">
+            @Html.Partial("Shared/Partials/BoardList.cshtml", BoardConfig.Boards.OrderBy(d=>d.Shorthand))
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-14 large-centered columns">
+            @RenderBody()
+        </div>
+    </div>
 
 </body>
 </html>

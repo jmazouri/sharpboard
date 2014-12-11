@@ -1,20 +1,11 @@
-﻿<!DOCTYPE html>
- 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" type="text/css" href="/Content/Stylesheets/normalize.css"/>
-        <link rel="stylesheet" type="text/css" href="/Content/Stylesheets/foundation.min.css" />
-        <title></title>
-    </head>
-
-    <body>
-        <div class="row">
-            <div class="large-16 columns">
-                <h1>SharpBoard</h1>
-
-            </div>
-        </div>
-        
-    </body>
-</html>
+﻿@using SharpBoard.App.Config
+@using SharpBoard.App.Models
+<h2>Board List</h2>
+<ul>
+    @foreach (Board b in BoardConfig.Boards)
+    {
+        <a href="/@b.Shorthand/">
+            <li>/@b.Shorthand/ - @b.Name</li>
+        </a>
+    }
+</ul>

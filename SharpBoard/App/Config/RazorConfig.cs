@@ -12,7 +12,7 @@ namespace SharpBoard.App.Config
 
         public IEnumerable<string> GetDefaultNamespaces()
         {
-            yield return "SharpBoard.Models";
+            yield return "SharpBoard.App.Models";
         }
 
         public bool AutoIncludeModelNamespace
