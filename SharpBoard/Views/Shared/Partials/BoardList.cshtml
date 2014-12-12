@@ -2,20 +2,22 @@
 @using System.Linq
 @using SharpBoard.App.Models
 @{
-    IEnumerable<Board> CurrentBoards = (IEnumerable<Board>)Model;
+    var currentBoards = ((IEnumerable<Board>)Model).ToList();
 }
-<div class="boardlist">
-    <span class="divider">[</span>
-        @foreach (Board b in CurrentBoards)
+        <div class="boardlist">
+            <span class="divider">[</span>
+        @foreach (var b in currentBoards)
         {
             <a href="/@b.Shorthand">
                 <span>@b.Shorthand</span>
             </a>
 
-            if (b != CurrentBoards.Last())
+            if (b == currentBoards.Last())
             {
-                <span class="divider">/</span>
+                continue;
             }
+            
+            <span class="divider">/</span>
         }
-    <span class="divider">]</span>
-</div>
+            <span class="divider">]</span>
+        </div>
