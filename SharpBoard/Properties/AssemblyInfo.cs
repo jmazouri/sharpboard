@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SharpBoard")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Jmazouri Fructifications")]
 [assembly: AssemblyProduct("SharpBoard")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright("Copyright © 2014  John Mazouri")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

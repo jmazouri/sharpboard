@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Nancy;
 using SharpBoard.App.Config;
+using SharpBoard.App.Database;
 using SharpBoard.App.Models;
 
 namespace SharpBoard.App.Modules
@@ -9,12 +10,15 @@ namespace SharpBoard.App.Modules
     {
         public BoardModule()
         {
+            DataSource ds = new DataSource();
+
             Get["/{shorthand}"] = _ =>
             {
                 Board foundBoard = BoardConfig.Boards.FirstOrDefault(d => d.Shorthand == _.shorthand);
 
                 if (foundBoard != null)
                 {
+                    ds.LoadPostsForBoard(foundBoard);
                     return View["Boards/SingleBoard", foundBoard];
                 }
 

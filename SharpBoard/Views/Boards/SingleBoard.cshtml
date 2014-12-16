@@ -7,3 +7,23 @@
         Welcome to /@currentBoard.Shorthand/ - @currentBoard.Name
     </div>
 </div>
+
+<div class="row">
+    <div class="large-15 columns">
+        @if (currentBoard.Posts.Count == 0)
+        {
+            <h2>
+                Error: No posts found in board.
+            </h2>
+        }
+        @foreach (Post p in currentBoard.Posts)
+        {
+            @p.Name
+            <text>, at </text>
+            @p.Time.ToShortDateString()
+            <text>, said: </text>
+            <br/>
+            @p.Content
+        }
+    </div>
+</div>

@@ -1,4 +1,6 @@
-﻿namespace SharpBoard.App.Models
+﻿using System.Collections.Generic;
+
+namespace SharpBoard.App.Models
 {
     public class Board
     {
@@ -16,5 +18,10 @@
         /// The maximum number of pages for the board. Posts past the maximum page are deleted.
         /// </summary>
         public int MaxPages { get; set; }
+
+        /// <summary>
+        /// The collection of posts made to this board.
+        /// </summary>
+        public List<Post> Posts = new List<Post>(); 
     }
 }
