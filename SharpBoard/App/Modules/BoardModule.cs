@@ -19,6 +19,7 @@ namespace SharpBoard.App.Modules
                 if (foundBoard != null)
                 {
                     ds.LoadPostsForBoard(foundBoard);
+                    foundBoard.Posts = foundBoard.Posts.OrderByDescending(d => d.Time).ToList();
                     return View["Boards/SingleBoard", foundBoard];
                 }
 

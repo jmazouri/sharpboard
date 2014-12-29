@@ -18,12 +18,11 @@
         }
         @foreach (Post p in currentBoard.Posts)
         {
-            @p.Name
-            <text>, at </text>
-            @p.Time.ToShortDateString()
-            <text>, said: </text>
-            <br/>
+            <h1>@p.Name</h1>
+            <h4>@p.Time.ToShortDateString()</h4>
             @p.Content
+            <br/>
+            <br/>
         }
     </div>
 </div>

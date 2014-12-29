@@ -1,0 +1,24 @@
+﻿-- Table: posts
+
+-- DROP TABLE posts;
+
+-- Remember to put it in the right database you dumbass
+
+CREATE TABLE posts
+(
+  "ParentPostId" bigint,
+  "PostId" bigserial NOT NULL,
+  "Name" character varying(50) NOT NULL,
+  "Content" text NOT NULL,
+  "Time" timestamp without time zone NOT NULL,
+  "PluginData" json NOT NULL DEFAULT '[]'::json,
+  "BoardShorthand" character varying(255) NOT NULL,
+  CONSTRAINT "PostIdPrimaryKey" PRIMARY KEY ("PostId")
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE posts
+  OWNER TO postgres;
+GRANT ALL ON TABLE posts TO postgres;
+GRANT ALL ON TABLE posts TO public;

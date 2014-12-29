@@ -31,7 +31,7 @@ namespace SharpBoard.App.Database
         public void LoadPostsForBoard(Board board)
         {
             board.Posts.Clear();
-            board.Posts.AddRange(_database.Query<Post>("SELECT * FROM posts WHERE BoardShorthand=@0", board.Shorthand));
+            board.Posts.AddRange(_database.Query<Post>("SELECT * FROM \"posts\" WHERE \"BoardShorthand\"=@0", board.Shorthand));
         }
     }
 }
