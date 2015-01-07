@@ -31,7 +31,18 @@ namespace SharpBoard.App.Database
         public void LoadPostsForBoard(Board board)
         {
             board.Posts.Clear();
-            board.Posts.AddRange(_database.Query<Post>("SELECT * FROM \"posts\" WHERE \"BoardShorthand\"=@0", board.Shorthand));
+            board.Posts.AddRange(_database.Query<Post>("SELECT * FROM \"posts\" WHERE \"BoardShorthand\"=@0 ORDER BY \"Time\" DESC", board.Shorthand));
+        }
+
+        public void LoadPostsForBoard(Board board, int start, int count)
+        {
+            board.Posts.Clear();
+            board.Posts.AddRange(_database.Query<Post>("SELECT * FROM \"posts\" WHERE \"BoardShorthand\"=@0 ORDER BY \"Time\" DESC LIMIT @1 OFFSET @2", board.Shorthand, count, start));
+        }
+
+        public int PageCountForBoard(Board board, int maxPerPage)
+        {
+            return _database.ExecuteScalar<int>("SELECT (COUNT(*) / @0) FROM \"posts\" WHERE \"BoardShorthand\"=@1", maxPerPage, board.Shorthand);
         }
     }
 }

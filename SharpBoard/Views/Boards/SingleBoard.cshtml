@@ -1,28 +1,47 @@
-﻿@using SharpBoard.App.Models
+﻿@using SharpBoard.App.Config
+@using SharpBoard.App.Models
 @{
-    Board currentBoard = (Board) Model;
+    Board currentBoard = (Board) Model.foundBoard;
+    int curPages = (int) Model.curPages;
+    int currentPage = (int) Model.currentPage;
 }
 <div class="row">
-    <div class="boardheader large-16 columns">
+    <div class="boardheader">
         Welcome to /@currentBoard.Shorthand/ - @currentBoard.Name
     </div>
 </div>
 
 <div class="row">
-    <div class="large-15 columns">
+    <div class="">
+        
         @if (currentBoard.Posts.Count == 0)
         {
             <h2>
                 Error: No posts found in board.
             </h2>
         }
+
         @foreach (Post p in currentBoard.Posts)
         {
-            <h1>@p.Name</h1>
-            <h4>@p.Time.ToShortDateString()</h4>
-            @p.Content
-            <br/>
-            <br/>
+            <div class="post">
+                <span class="titleline">
+                    <span class="name">@p.Name</span>
+                    <time datetime="@p.Time.ToString("R")">@p.Time.ToString("F")</time>
+                    <span class="postid">No.@p.PostId</span>
+                </span>
+                <br/>
+                @p.Content
+            </div>
         }
+
+        <ul class="pagination">
+            @for (int i = 0; i <= @curPages; i++)
+            {
+                <li class="@(currentPage == i ? "current" : "")">
+                    <a href="/@currentBoard.Shorthand/@i">@i</a>
+                </li>
+            }
+        </ul>
+        
     </div>
 </div>

@@ -15,6 +15,7 @@ namespace SharpBoard.App
     {
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
+            GeneralConfig.Load();
             BoardConfig.Load();
         }
     }

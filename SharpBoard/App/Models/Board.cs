@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using SharpBoard.App.Config;
 
 namespace SharpBoard.App.Models
 {

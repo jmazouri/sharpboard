@@ -1,7 +1,13 @@
-﻿.boardlist
+﻿body
+{
+    font-size: 0.8em;
+    padding: 10px 50px 50px 50px;
+}
+
+.boardlist
 {
     text-align: right;
-    margin-top: 24px;
+    margin-top: 25px;
 }
 
 .boardlist span:not(.divider)
@@ -30,4 +36,34 @@
 {
     font-size: 2em;
     text-align: center;
+    margin-top: 25px;
+}
+
+.post
+{
+    font-size: 1.25em;
+    margin-bottom: 20px;
+}
+
+.post .titleline
+{
+    font-size: 0.75em;
+}
+
+.post .titleline > time
+{
+    color: gray;
+    padding-right: 6px;
+}
+
+.post .titleline .postid
+{
+    color: gray;
+}
+
+.post .titleline .name
+{
+    font-weight: bold;
+    font-size: 1.3em;
+    padding-right: 14px;
 }
