@@ -42,20 +42,12 @@
             "Shorthand": "bg"
         },
         {
-            "Name": "Porn",
-            "Shorthand": "nsfw"
-        },
-        {
             "Name": "Music",
             "Shorthand": "mu"
         },
         {
             "Name": "Weapons",
             "Shorthand": "wep"
-        },
-        {
-            "Name": "Trees",
-            "Shorthand": "420"
         }
     ]
 }

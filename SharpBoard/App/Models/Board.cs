@@ -21,6 +21,11 @@ namespace SharpBoard.App.Models
         /// </summary>
         public int MaxPages { get; set; }
 
+        public string FullName
+        {
+            get { return "/" + Shorthand + "/ - " + Name; }
+        }
+
         /// <summary>
         /// The collection of posts made to this board.
         /// </summary>

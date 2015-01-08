@@ -5,10 +5,10 @@
 
 <div class="row">
     <div class="boardheader">
-        Make a new post in /@currentBoard.Shorthand/
+        Make a new post on /@currentBoard.Shorthand/
     </div>
 </div>
 
 <div class="row">
-    
+    @Html.Partial("Shared/Partials/NewPostForm.cshtml", currentBoard)
 </div>

@@ -16,7 +16,7 @@ namespace SharpBoard.App.Modules
             : base("/{shorthand}/post")
         {
             DataSource ds = new DataSource();
-            Board foundBoard;
+            Board foundBoard = new Board();
 
             Before += ctx => 
             {
@@ -32,7 +32,11 @@ namespace SharpBoard.App.Modules
 
             Get[""] = _ =>
             {
-                return View["Post/NewPost"];
+                return View["Post/NewPost", new
+                {
+                    CurrentBoard = foundBoard,
+                    PartialTitle = "New post on /" + foundBoard.Shorthand + "/"
+                }];
             };
 
             Post[""] = _ =>
@@ -43,6 +47,8 @@ namespace SharpBoard.App.Modules
                 if (!result.IsValid)
                 {
                 }
+
+                return null;
             };
         }
     }

@@ -78,3 +78,19 @@
 {
     margin: 5px 2px 5px 2px;
 }
+
+.newpostform
+{
+    width: 33%;
+    margin: 0 auto;
+}
+
+.newpostform textarea
+{
+    height: 220px;
+}
+
+#submitbutton
+{
+    width: 100%;
+}

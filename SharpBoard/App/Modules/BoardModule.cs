@@ -21,7 +21,7 @@ namespace SharpBoard.App.Modules
                     ds.LoadPostsForBoard(foundBoard, ((_.page) * GeneralConfig.PostsPerPage), GeneralConfig.PostsPerPage);
                     int curPages = ds.PageCountForBoard(foundBoard, GeneralConfig.PostsPerPage);
 
-                    return View["Boards/SingleBoard", new {foundBoard, curPages, currentPage = _.page}];
+                    return View["Boards/SingleBoard", new {foundBoard, curPages, currentPage = _.page, PartialTitle = foundBoard.FullName}];
                 }
 
                 return View["Shared/Error", "Board does not exist."];
