@@ -2,8 +2,6 @@
 
 -- DROP TABLE posts;
 
--- Remember to put it in the right database you dumbass
-
 CREATE TABLE posts
 (
   "ParentPostId" bigint,
@@ -22,3 +20,13 @@ ALTER TABLE posts
   OWNER TO postgres;
 GRANT ALL ON TABLE posts TO postgres;
 GRANT ALL ON TABLE posts TO public;
+
+-- Index: "PostIdAndBoard"
+
+-- DROP INDEX "PostIdAndBoard";
+
+CREATE INDEX "PostIdAndBoard"
+  ON posts
+  USING btree
+  ("PostId", "BoardShorthand" COLLATE pg_catalog."default");
+

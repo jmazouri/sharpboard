@@ -49,6 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="App\Config\ErrorCodes.cs" />
     <Compile Include="App\Config\GeneralConfig.cs" />
     <Compile Include="App\Config\BoardConfig.cs" />
     <Compile Include="App\Config\RazorConfig.cs" />
@@ -57,9 +58,11 @@
     <Compile Include="App\Models\Board.cs" />
     <Compile Include="App\Models\PluginData.cs" />
     <Compile Include="App\Models\Post.cs" />
+    <Compile Include="App\Modules\PostModule.cs" />
     <Compile Include="App\Modules\BoardModule.cs" />
     <Compile Include="App\Modules\HomeModule.cs" />
     <Compile Include="App\Models\PetaPoco.cs" />
+    <Compile Include="App\Util\Util.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,6 +89,7 @@
     <None Include="Views\Home\Index.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Views\Post\NewPost.cshtml" />
     <None Include="Views\Shared\Error.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -219,6 +223,7 @@
       <HintPath>..\packages\Npgsql.2.2.3\lib\net45\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web.Extensions" />

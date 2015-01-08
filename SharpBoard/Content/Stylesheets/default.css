@@ -36,13 +36,14 @@
 {
     font-size: 2em;
     text-align: center;
-    margin-top: 25px;
+    margin: 10px 0 25px 0;
 }
 
 .post
 {
     font-size: 1.25em;
-    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.08);
+    padding: 5px;
 }
 
 .post .titleline
@@ -66,4 +67,14 @@
     font-weight: bold;
     font-size: 1.3em;
     padding-right: 14px;
+}
+
+.post .content
+{
+    padding: 10px 20px 10px 35px;
+}
+
+.postdivider
+{
+    margin: 5px 2px 5px 2px;
 }

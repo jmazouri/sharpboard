@@ -6,18 +6,18 @@
 }
         <div class="boardlist">
             <span class="divider">[</span>
-        @foreach (var b in currentBoards)
-        {
-            <a href="/@b.Shorthand">
-                <span>@b.Shorthand</span>
-            </a>
-
-            if (b == currentBoards.Last())
+            @foreach (var b in currentBoards)
             {
-                continue;
-            }
+                <a href="/@b.Shorthand">
+                    <span>@b.Shorthand</span>
+                </a>
+
+                if (b == currentBoards.Last())
+                {
+                    continue;
+                }
             
-            <span class="divider">/</span>
-        }
+                <span class="divider">/</span>
+            }
             <span class="divider">]</span>
         </div>

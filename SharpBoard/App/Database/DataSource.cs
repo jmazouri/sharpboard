@@ -22,7 +22,7 @@ namespace SharpBoard.App.Database
 
         public void LoadAllPosts()
         {
-            foreach (Board board in Boards)
+            foreach (var board in Boards)
             {
                 LoadPostsForBoard(board);
             }

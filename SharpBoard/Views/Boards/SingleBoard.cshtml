@@ -27,11 +27,16 @@
                 <span class="titleline">
                     <span class="name">@p.Name</span>
                     <time datetime="@p.Time.ToString("R")">@p.Time.ToString("F")</time>
-                    <span class="postid">No.@p.PostId</span>
+                    <a href="#@p.PostId" id="@p.PostId"><span class="postid">No.@p.PostId</span></a>
                 </span>
-                <br/>
-                @p.Content
+
+                <div class="content">
+                    @p.Content
+                </div>
+
             </div>
+            
+            <hr class="postdivider"/>
         }
 
         <ul class="pagination">
