@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="App\Config\ErrorCodes.cs" />
+    <Compile Include="App\Config\ErrorHandling.cs" />
     <Compile Include="App\Config\GeneralConfig.cs" />
     <Compile Include="App\Config\BoardConfig.cs" />
     <Compile Include="App\Config\RazorConfig.cs" />

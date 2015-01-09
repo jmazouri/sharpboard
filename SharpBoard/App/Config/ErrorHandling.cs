@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharpBoard.App.Config
 {
-    public static class ErrorCodes
+    public static class ErrorHandling
     {
         public static Dictionary<ErrorCode, string> Codes = new Dictionary<ErrorCode, string>
         {
