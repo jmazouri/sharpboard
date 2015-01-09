@@ -14,7 +14,7 @@ namespace SharpBoard.App.Modules
 
             Get["/{shorthand}/{page?0}"] = _ =>
             {
-                Board foundBoard = BoardConfig.Boards.FirstOrDefault(d => d.Shorthand == _.shorthand);
+                Board foundBoard = ds.GetBoardFromShorthand(_.shorthand);
 
                 if (foundBoard != null)
                 {

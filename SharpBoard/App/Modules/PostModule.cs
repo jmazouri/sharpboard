@@ -46,9 +46,17 @@ namespace SharpBoard.App.Modules
 
                 if (!result.IsValid)
                 {
+                    return new RedirectResponse("/error/" + Util.ErrorNameFromCode(ErrorCode.InvalidPost),
+                        RedirectResponse.RedirectType.Temporary);
                 }
 
-                return null;
+                newPost.Board = foundBoard;
+                newPost.Time = DateTime.UtcNow;
+                newPost.ParentPostId = -1;
+
+                ds.InsertPost(newPost);
+
+                return new RedirectResponse("/" + foundBoard.Shorthand+"#"+newPost.PostId);
             };
         }
     }

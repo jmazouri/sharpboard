@@ -43,6 +43,13 @@ namespace SharpBoard.App.Models
         /// <summary>
         /// The board that this post belongs to.
         /// </summary>
+        [PetaPoco.Ignore]
         public Board Board { get; set; }
+
+        public string BoardShorthand
+        {
+            get { return (Board == null ? "" : Board.Shorthand); }
+            set { ; }
+        }
     }
 }

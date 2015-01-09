@@ -18,7 +18,7 @@ namespace SharpBoard.App.Database
             Boards.AddRange(BoardConfig.Boards);
         }
 
-        public static List<Board> Boards = new List<Board>();
+        private static List<Board> Boards = new List<Board>();
 
         public void LoadAllPosts()
         {
@@ -40,9 +40,19 @@ namespace SharpBoard.App.Database
             board.Posts.AddRange(_database.Query<Post>("SELECT * FROM \"posts\" WHERE \"BoardShorthand\"=@0 ORDER BY \"Time\" DESC LIMIT @1 OFFSET @2", board.Shorthand, count, start));
         }
 
+        public Board GetBoardFromShorthand(string shorthand)
+        {
+            return Boards.FirstOrDefault(d => d.Shorthand == shorthand);
+        }
+
         public int PageCountForBoard(Board board, int maxPerPage)
         {
             return _database.ExecuteScalar<int>("SELECT (COUNT(*) / @0) FROM \"posts\" WHERE \"BoardShorthand\"=@1", maxPerPage, board.Shorthand);
+        }
+
+        public void InsertPost(Post post)
+        {
+            _database.Insert("posts", "PostId", true, post);
         }
     }
 }
