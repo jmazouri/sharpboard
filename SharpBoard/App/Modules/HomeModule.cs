@@ -9,6 +9,7 @@ namespace SharpBoard.App.Modules
         public HomeModule()
         {
             Get["/"] = _ => View["Home/Index", new {PartialTitle = "Home"}];
+
             Get["/error/{errorcode?}"] = _ =>
             {
                 string errorString = ErrorHandling.Codes[ErrorCode.Default];

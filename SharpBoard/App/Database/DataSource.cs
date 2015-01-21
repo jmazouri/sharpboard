@@ -10,49 +10,14 @@ namespace SharpBoard.App.Database
 {
     public class DataSource
     {
-        private readonly PetaPoco.Database _database;
+        protected static PetaPoco.Database Database;
 
-        public DataSource()
+        protected DataSource()
         {
-            _database = new PetaPoco.Database("DefaultDBConnection");
-            Boards.AddRange(BoardConfig.Boards);
-        }
-
-        private static List<Board> Boards = new List<Board>();
-
-        public void LoadAllPosts()
-        {
-            foreach (var board in Boards)
+            if (Database == null)
             {
-                LoadPostsForBoard(board);
+                Database = new PetaPoco.Database("DefaultDBConnection");
             }
-        }
-
-        public void LoadPostsForBoard(Board board)
-        {
-            board.Posts.Clear();
-            board.Posts.AddRange(_database.Query<Post>("SELECT * FROM \"posts\" WHERE \"BoardShorthand\"=@0 ORDER BY \"Time\" DESC", board.Shorthand));
-        }
-
-        public void LoadPostsForBoard(Board board, int start, int count)
-        {
-            board.Posts.Clear();
-            board.Posts.AddRange(_database.Query<Post>("SELECT * FROM \"posts\" WHERE \"BoardShorthand\"=@0 ORDER BY \"Time\" DESC LIMIT @1 OFFSET @2", board.Shorthand, count, start));
-        }
-
-        public Board GetBoardFromShorthand(string shorthand)
-        {
-            return Boards.FirstOrDefault(d => d.Shorthand == shorthand);
-        }
-
-        public int PageCountForBoard(Board board, int maxPerPage)
-        {
-            return _database.ExecuteScalar<int>("SELECT (COUNT(*) / @0) FROM \"posts\" WHERE \"BoardShorthand\"=@1", maxPerPage, board.Shorthand);
-        }
-
-        public void InsertPost(Post post)
-        {
-            _database.Insert("posts", "PostId", true, post);
         }
     }
 }

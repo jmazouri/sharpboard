@@ -54,7 +54,9 @@
     <Compile Include="App\Config\BoardConfig.cs" />
     <Compile Include="App\Config\RazorConfig.cs" />
     <Compile Include="App\CustomBootstrapper.cs" />
+    <Compile Include="App\Database\BoardRepository.cs" />
     <Compile Include="App\Database\DataSource.cs" />
+    <Compile Include="App\Database\PostRepository.cs" />
     <Compile Include="App\Models\Board.cs" />
     <Compile Include="App\Models\PluginData.cs" />
     <Compile Include="App\Models\Post.cs" />

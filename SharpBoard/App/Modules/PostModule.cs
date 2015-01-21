@@ -15,7 +15,6 @@ namespace SharpBoard.App.Modules
         public PostModule()
             : base("/{shorthand}/post")
         {
-            DataSource ds = new DataSource();
             Board foundBoard = new Board();
 
             Before += ctx => 
@@ -54,7 +53,8 @@ namespace SharpBoard.App.Modules
                 newPost.Time = DateTime.UtcNow;
                 newPost.ParentPostId = -1;
 
-                ds.InsertPost(newPost);
+                PostRepository repo = new PostRepository();
+                repo.InsertPost(newPost);
 
                 return new RedirectResponse("/" + foundBoard.Shorthand+"#"+newPost.PostId);
             };

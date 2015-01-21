@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Nancy;
+using Nancy.Responses;
 using SharpBoard.App.Config;
 using SharpBoard.App.Database;
 using SharpBoard.App.Models;
@@ -10,21 +11,21 @@ namespace SharpBoard.App.Modules
     {
         public BoardModule()
         {
-            DataSource ds = new DataSource();
-
             Get["/{shorthand}/{page?0}"] = _ =>
             {
-                Board foundBoard = ds.GetBoardFromShorthand(_.shorthand);
+                BoardRepository repo = new BoardRepository();
+
+                Board foundBoard = repo.GetBoardFromShorthand(_.shorthand);
 
                 if (foundBoard != null)
                 {
-                    ds.LoadPostsForBoard(foundBoard, ((_.page) * GeneralConfig.PostsPerPage), GeneralConfig.PostsPerPage);
-                    int curPages = ds.PageCountForBoard(foundBoard, GeneralConfig.PostsPerPage);
+                    repo.LoadPostsForBoard(foundBoard, ((_.page) * GeneralConfig.PostsPerPage), GeneralConfig.PostsPerPage);
+                    int curPages = repo.PageCountForBoard(foundBoard, GeneralConfig.PostsPerPage);
 
                     return View["Boards/SingleBoard", new {foundBoard, curPages, currentPage = _.page, PartialTitle = foundBoard.FullName}];
                 }
 
-                return View["Shared/Error", "Board does not exist."];
+                return new RedirectResponse("/error/" + Util.ErrorNameFromCode(ErrorCode.MissingBoard), RedirectResponse.RedirectType.Temporary);
             };
         }
     }
