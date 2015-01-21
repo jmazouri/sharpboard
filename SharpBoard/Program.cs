@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Nancy.Hosting.Self;
@@ -17,13 +19,18 @@ namespace SharpBoard
                 x.Service<NancyHost>(s =>
                 {
                     s.ConstructUsing(name => new NancyHost(Util.GetUri()));
-                    s.WhenStarted(tc => tc.Start());
+
+                    s.WhenStarted(tc =>
+                    {
+                        Directory.SetCurrentDirectory(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+                        tc.Start();
+                    });
+
                     s.WhenStopped(tc => tc.Stop());
                 });
 
                 x.RunAsLocalSystem();
                 x.StartAutomatically();
-
                 
                 x.SetDescription("SharpBoard Image Board Server");
                 x.SetDisplayName("Sharpboard");
