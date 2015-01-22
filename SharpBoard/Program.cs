@@ -6,12 +6,15 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Nancy.Hosting.Self;
+using NLog;
 using Topshelf;
 
 namespace SharpBoard
 {
     class Program
     {
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
+
         static void Main(string[] args)
         {
             HostFactory.Run(x =>
@@ -22,11 +25,14 @@ namespace SharpBoard
 
                     s.WhenStarted(tc =>
                     {
-                        Directory.SetCurrentDirectory(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+                        _logger.Info("Service was Started.");
                         tc.Start();
                     });
 
-                    s.WhenStopped(tc => tc.Stop());
+                    s.WhenStopped(tc =>
+                    {
+                        tc.Stop();
+                    });
                 });
 
                 x.RunAsLocalSystem();

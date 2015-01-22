@@ -50,9 +50,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="App\Config\Configuration.cs" />
     <Compile Include="App\Config\ErrorHandling.cs" />
     <Compile Include="App\Config\GeneralConfig.cs" />
     <Compile Include="App\Config\BoardConfig.cs" />
+    <Compile Include="App\Config\IConfigurable.cs" />
     <Compile Include="App\Config\RazorConfig.cs" />
     <Compile Include="App\CustomBootstrapper.cs" />
     <Compile Include="App\Database\BoardRepository.cs" />
@@ -84,6 +86,12 @@
     </None>
     <None Include="Migrations\tablecreation.psql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
     <None Include="Views\Boards\SingleBoard.cshtml">
@@ -229,6 +237,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.3.2.0.0\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="Npgsql">
       <HintPath>..\packages\Npgsql.2.2.3\lib\net45\Npgsql.dll</HintPath>
